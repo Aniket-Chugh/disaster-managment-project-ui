@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import image from "../assets/imagethree.png";
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const [phonenum, setPhonenum] = useState(''); // Phone number state
@@ -82,14 +83,21 @@ onChange={handlepass}
           />
         </div>
 
-        <div className="flex-1 flex items-end min-w-[200px]">
+        <div className="flex-1 flex-col items-end min-w-[200px]">
           <button
             onClick={submitLogin}
             className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 w-full font-semibold"
           >
             Log In
           </button>
+
+
+          <div className='mt-5'>
+    <h1>Don't have an account ? <Link className='text-red-600'>Sign up</Link></h1>
+</div>
+
         </div>
+
       </div>
     </div>
   );
