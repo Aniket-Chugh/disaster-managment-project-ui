@@ -18,7 +18,7 @@ const Navbar = () => {
     <>
       <nav className="bg-gray-900 text-white py-3 px-6 flex items-center justify-between shadow-md sticky top-0 z-10">
         <div className="flex items-center gap-6">
-          <h1 className="text-2xl font-bold tracking-wide">DisasterMS</h1>
+         <Link to="/"><h1 className="text-2xl font-bold tracking-wide">DisasterMS</h1></Link>
 
           {/* Mobile Menu Button */}
           <button className="lg:hidden text-white" onClick={toggleMobileMenu}>
@@ -69,9 +69,9 @@ const Navbar = () => {
 
         {/* Right Side - Buttons */}
         <div className="flex items-center gap-4">
-          <button className="text-sm px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition">
+        <Link to="/report"><button className="text-sm px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition">
             Report
-          </button>
+          </button></Link>
           <button className="text-sm px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 hover:text-white transition">
             Login
           </button>

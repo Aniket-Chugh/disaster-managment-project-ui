@@ -39,7 +39,7 @@ const HeroSection = () => {
   return (
     <div className="bg-gradient-to-r from-gray-800 to-gray-600 h-screen w-full relative overflow-hidden">
       {/* Left section - Title and description */}
-      <div className="absolute top-24 left-8 lg:left-16 xl:left-24 w-full max-w-2xl">
+      <div className="absolute top-12 left-8 lg:left-16 xl:left-24 w-full max-w-2xl mb-16">
         <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-wide">
           Report A Disaster
         </h1>
@@ -47,9 +47,9 @@ const HeroSection = () => {
           Quickly report any disaster or emergency situation in your area and get immediate help.
         </p>
         <div className="mt-8">
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 hover:text-white transition-all duration-300 font-semibold text-lg">
+         <Link to="/report">  <button className="bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 hover:text-white transition-all duration-300 font-semibold text-lg">
             Report Now
-          </button>
+          </button></Link>
         </div>
       </div>
 
@@ -59,7 +59,7 @@ const HeroSection = () => {
       </div>
 
       {/* Form Section */}
-      <div className="absolute left-8 lg:left-16 bottom-20 flex flex-wrap gap-4 bg-white p-6 rounded-xl shadow-lg w-[90%] lg:w-[60%] max-w-3xl z-10">
+      <div className=" mt-[380px] ml-9 left-8 lg:left-16 bottom-20 flex flex-wrap gap-4 bg-white p-6 rounded-xl shadow-lg w-[90%] lg:w-[60%] max-w-3xl z-10">
         <div className="flex-1 min-w-[250px]">
           <h2 className="text-lg font-semibold text-gray-700 mb-2">Phone Number</h2>
           <input
