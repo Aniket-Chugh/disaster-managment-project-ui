@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function SignUpPage() {
   const [formData, setFormData] = useState({
@@ -58,6 +59,11 @@ export default function SignUpPage() {
               <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition-all duration-200">
                 Send OTP
               </button>
+              <div>
+                <Link to={"/"} className='mt-5'>
+                Back to homePage
+                </Link>
+              </div>
             </form>
           )}
 
@@ -78,6 +84,9 @@ export default function SignUpPage() {
               <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition-all duration-200">
                 Verify OTP
               </button>
+              <Link to={"/"} className='mt-5'>
+                Back to homePage
+                </Link>
             </form>
           )}
 
@@ -110,6 +119,9 @@ export default function SignUpPage() {
               <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition-all duration-200">
                 Sign Up
               </button>
+              <Link to={"/"} className='mt-5'>
+                Back to homePage
+                </Link>
             </form>
           )}
         </div>
