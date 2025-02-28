@@ -4,6 +4,8 @@ import image from "../assets/imagethree.png";
 const HeroSection = () => {
   const [phonenum, setPhonenum] = useState(''); // Phone number state
   const [errorMessage, setErrorMessage] = useState('');
+  const [pass, setpass] = useState("");
+
 
   // Handle phone number input change
   const handlePhoneChange = (e) => {
@@ -13,6 +15,13 @@ const HeroSection = () => {
     // Reset error message on change
     setErrorMessage('');
   };
+
+
+  const handlepass = (e)=>{
+    const valuepass = e.target.value;
+    setpass(valuepass);
+  }
+
 
   // Handle form submission
   const submitLogin = () => {
@@ -67,6 +76,8 @@ const HeroSection = () => {
           <input
             type="password"
             placeholder="Enter your password"
+value={pass}
+onChange={handlepass}
             className="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
         </div>
