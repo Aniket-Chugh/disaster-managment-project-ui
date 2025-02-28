@@ -93,7 +93,7 @@ onChange={handlepass}
 
 
           <div className='mt-5'>
-    <h1>Don't have an account ? <Link className='text-red-600'>Sign up</Link></h1>
+    <h1>Don't have an account ? <Link  to={"/signup"} className='text-red-600'>Sign up</Link></h1>
 </div>
 
         </div>
