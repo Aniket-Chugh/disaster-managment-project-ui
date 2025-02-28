@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import Navbar from '../Component/NavBar'; // Adjust path if necessary
+import Navbar from '../Component/NavBar'; 
 import Footer from "../Component/Footer";
 
 const DisasterManagement = () => {

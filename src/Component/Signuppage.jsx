@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './NavBar';
 
 export default function SignUpPage() {
   const [formData, setFormData] = useState({
@@ -37,7 +38,11 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-600">
+    <div>
+
+
+        <Navbar></Navbar>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-600">
       <div className="w-full max-w-md p-6 bg-white shadow-2xl rounded-2xl">
         <div className="p-6">
           <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Sign Up</h1>
@@ -79,7 +84,7 @@ export default function SignUpPage() {
                   className="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   placeholder="Enter OTP"
                   required
-                />
+                  />
               </div>
               <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition-all duration-200">
                 Verify OTP
@@ -114,7 +119,7 @@ export default function SignUpPage() {
                   className="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   placeholder="••••••••"
                   required
-                />
+                  />
               </div>
               <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition-all duration-200">
                 Sign Up
@@ -127,5 +132,6 @@ export default function SignUpPage() {
         </div>
       </div>
     </div>
+          </div>
   );
 }
