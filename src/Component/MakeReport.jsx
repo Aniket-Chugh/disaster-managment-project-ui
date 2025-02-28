@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
-import Navbar from './Navbar'; // Adjust path if necessary
+import Navbar from '../Component/NavBar'; // Adjust path if necessary
+import Footer from "../Component/Footer";
 
 const DisasterManagement = () => {
   const [recording, setRecording] = useState(false);
@@ -188,9 +189,7 @@ const DisasterManagement = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 p-4 text-center">
-        <p>&copy; 2025 Disaster Management System. All Rights Reserved.</p>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 };
