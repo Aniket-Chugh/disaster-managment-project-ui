@@ -18,7 +18,7 @@ const Navbar = () => {
     <>
       <nav className="bg-gray-900 text-white py-3 px-6 flex items-center justify-between shadow-md sticky top-0 z-10">
         <div className="flex items-center gap-6">
-         <Link to="/"><h1 className="text-2xl font-bold tracking-wide">DisasterMS</h1></Link>
+          <Link to="/"><h1 className="text-2xl font-bold tracking-wide">DisasterMS</h1></Link>
 
           {/* Mobile Menu Button */}
           <button className="lg:hidden text-white" onClick={toggleMobileMenu}>
@@ -41,7 +41,7 @@ const Navbar = () => {
               </button>
 
               {openmenu && (
-                <div className="absolute bg-gray-900 w-[150px] p-2 mt-2 rounded-md shadow-lg">
+                <div className="absolute bg-gray-900 w-[150px] p-2 mt-2 rounded-md shadow-lg max-h-40 overflow-auto">
                   <ul>
                     <li className="hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Join as Volunteer</li>
                     <li className="hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Manage Tasks</li>
@@ -69,11 +69,11 @@ const Navbar = () => {
 
         {/* Right Side - Buttons */}
         <div className="flex items-center gap-4">
-        <Link to="/report"><button className="text-sm px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition">
+          <Link to="/report"><button className="text-sm px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition">
             Report
           </button></Link>
-        <Link to="/signup">  <button className="text-sm px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 hover:text-white transition">
-          Sign Up
+          <Link to="/signup"><button className="text-sm px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 hover:text-white transition">
+            Sign Up
           </button></Link>
         </div>
       </nav>
@@ -96,7 +96,7 @@ const Navbar = () => {
               </button>
 
               {openmenu && (
-                <div className="absolute bg-gray-900 w-[150px] p-2 mt-2 rounded-md shadow-lg">
+                <div className="absolute bg-gray-900 w-[150px] p-2 mt-2 rounded-md shadow-lg max-h-40 overflow-auto">
                   <ul>
                     <li className="text-white hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Join as Volunteer</li>
                     <li className="text-white hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Manage Tasks</li>
@@ -107,6 +107,18 @@ const Navbar = () => {
             </div>
 
             <li className="text-white hover:text-blue-400 cursor-pointer transition">Support</li>
+
+            {/* Mobile Search Bar */}
+            <div className="flex bg-gray-600 px-4 py-2 rounded-full items-center shadow-inner mt-2">
+              <input
+                type="text"
+                placeholder="Find urgent help"
+                className="bg-transparent outline-none text-white placeholder-gray-200 px-2"
+              />
+              <Link to="/ngosearch">
+                <button className="text-white hover:text-blue-100 transition">🔍</button>
+              </Link>
+            </div>
           </ul>
         </div>
       )}
