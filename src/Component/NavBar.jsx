@@ -22,7 +22,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button className="lg:hidden text-white" onClick={toggleMobileMenu}>
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+            {isMobileMenuOpen ? <FaTimes  /> : <FaBars />}
           </button>
 
           {/* Desktop Navigation Links */}
@@ -69,10 +69,10 @@ const Navbar = () => {
 
         {/* Right Side - Buttons */}
         <div className="flex items-center gap-4">
-          <Link to="/report"><button className="text-sm px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition">
+          <Link to="/report"><button className="text-sm px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition ml-4">
             Report
           </button></Link>
-          <Link to="/signup"><button className="text-sm px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 hover:text-white transition">
+          <Link to="/signup"><button className=" button text-sm px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 hover:text-white transition">
             Sign Up
           </button></Link>
         </div>
