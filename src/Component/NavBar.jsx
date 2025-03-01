@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Button } from "@material-tailwind/react";
 import { MdOutlineAccountCircle } from "react-icons/md";
 
 const Navbar = () => {
@@ -71,13 +70,15 @@ const Navbar = () => {
               Report
             </button>
           </Link>
+<div rounded-full border border-white>
 
-          <Button onClick={handleAccountClick} className="rounded-full border border-white">
+          <button onClick={handleAccountClick} className="rounded-full border border-white">
             <MdOutlineAccountCircle className="text-white" />
-          </Button>
+          </button>
+</div>
 
           {open && (
-            <div className="absolute bg-gray-900 w-36 p-2 mt-40 rounded-md shadow-lg">
+            <div className="absolute bg-gray-900 w-33 p-2 mt-40 rounded-md shadow-lg ">
               <ul>
                 <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Open Dashboard</li>
                 <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Manage Tasks</li>
