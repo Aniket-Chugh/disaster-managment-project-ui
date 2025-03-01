@@ -3,32 +3,21 @@ import image from "../assets/imagethree.png";
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
-  const [phonenum, setPhonenum] = useState(''); // Phone number state
+  const [phonenum, setPhonenum] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [pass, setpass] = useState("");
 
-
-  // Handle phone number input change
   const handlePhoneChange = (e) => {
-    const value = e.target.value;
-    setPhonenum(value);
-
-    // Reset error message on change
+    setPhonenum(e.target.value);
     setErrorMessage('');
   };
 
+  const handlepass = (e) => {
+    setpass(e.target.value);
+  };
 
-  const handlepass = (e)=>{
-    const valuepass = e.target.value;
-    setpass(valuepass);
-  }
-
-
-  // Handle form submission
   const submitLogin = () => {
-    // Check if phone number is exactly 10 digits and contains only numbers
     const isValidPhone = /^[0-9]{10}$/.test(phonenum);
-
     if (isValidPhone) {
       alert('Logged in successfully');
     } else {
@@ -47,19 +36,21 @@ const HeroSection = () => {
           Quickly report any disaster or emergency situation in your area and get immediate help.
         </p>
         <div className="mt-8">
-         <Link to="/report">  <button className="bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 hover:text-white transition-all duration-300 font-semibold text-lg">
-            Report Now
-          </button></Link>
+          <Link to="/report">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 font-semibold text-lg">
+              Report Now
+            </button>
+          </Link>
         </div>
       </div>
 
-      {/* Right section - Image of vehicles and accident scene */}
-      <div className="absolute right-0 bottom-0 w-full lg:w-[50%] h-[50%] lg:h-[80%] flex items-center justify-center z-0">
-        <img src={image} alt="Accident Scene" className="object-cover w-[90%] h-[90%] ml-36  rounded-lg" />
+      {/* Right section - Image (Hidden on small screens) */}
+      <div className="hidden lg:flex absolute right-0 bottom-0 w-[50%] h-[80%] items-center justify-center z-0">
+        <img src={image} alt="Accident Scene" className="object-cover w-[90%] h-[90%] ml-36 rounded-lg" />
       </div>
 
       {/* Form Section */}
-      <div className=" mt-[380px] ml-9 left-8 lg:left-16 bottom-20 flex flex-wrap gap-4 bg-white p-6 rounded-xl shadow-lg w-[90%] lg:w-[60%] max-w-3xl z-10">
+      <div className="mt-[380px] ml-9 left-8 lg:left-16 bottom-20 flex flex-wrap gap-4 bg-white p-6 rounded-xl shadow-lg w-[90%] lg:w-[60%] max-w-3xl z-10">
         <div className="flex-1 min-w-[250px]">
           <h2 className="text-lg font-semibold text-gray-700 mb-2">Phone Number</h2>
           <input
@@ -77,8 +68,8 @@ const HeroSection = () => {
           <input
             type="password"
             placeholder="Enter your password"
-value={pass}
-onChange={handlepass}
+            value={pass}
+            onChange={handlepass}
             className="border border-gray-300 p-3 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
         </div>
@@ -90,14 +81,10 @@ onChange={handlepass}
           >
             Log In
           </button>
-
-
           <div className='mt-5'>
-    <h1>Don't have an account ? <Link  to={"/signup"} className='text-red-600'>Sign up</Link></h1>
-</div>
-
+            <h1>Don't have an account? <Link to="/signup" className='text-red-600'>Sign up</Link></h1>
+          </div>
         </div>
-
       </div>
     </div>
   );
