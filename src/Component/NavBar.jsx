@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Menu, MenuItem, Button } from "@material-tailwind/react";
+import { MdOutlineAccountCircle } from "react-icons/md";
+
 
 const Navbar = () => {
+    const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
   const [openmenu, setOpenmenu] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,7 +30,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button className="lg:hidden text-white" onClick={toggleMobileMenu}>
-            {isMobileMenuOpen ? <FaTimes  /> : <FaBars />}
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
 
           {/* Desktop Navigation Links */}
@@ -69,12 +77,27 @@ const Navbar = () => {
 
         {/* Right Side - Buttons */}
         <div className="flex items-center gap-4">
-          <Link to="/report"><button className="text-sm px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition ml-4">
-            Report
-          </button></Link>
-          <Link to="/signup"><button className=" button text-sm px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 hover:text-white transition">
-            Sign Up
-          </button></Link>
+          <Link to="/report">
+            <button className="text-sm px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition ml-4">
+              Report
+            </button>
+          </Link>
+
+          <Button onClick={handleOpen} className="rounded-full border border-white">
+          <MdOutlineAccountCircle  className="size-6 rounded-full border border-white" />
+
+          </Button>
+        {open && (
+
+
+<div className="absolute bg-gray-900 w-[150px] p-2 mt-40 rounded-md shadow-lg max-h-40 overflow-auto">
+<ul>
+  <li className="text-white hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Open DashBoard</li>
+  <li className="text-white hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Manage Tasks</li>
+</ul>
+</div>
+        )}
+
         </div>
       </nav>
 

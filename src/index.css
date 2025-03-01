@@ -22,8 +22,9 @@
     background: #1d4ed8; /* Hover effect */
   }
 
-  @media screen and (max-width: 640px) {
+  /* @media screen and (max-width: 640px) {
    .button{
 width: 90px;
+
    }
-  }
+  } */
