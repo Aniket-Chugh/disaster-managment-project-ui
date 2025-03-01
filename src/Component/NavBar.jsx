@@ -1,145 +1,127 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Menu, MenuItem, Button } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 import { MdOutlineAccountCircle } from "react-icons/md";
 
-
 const Navbar = () => {
-    const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(!open);
-  };
-  const [openmenu, setOpenmenu] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setOpenmenu(!openmenu);
-  };
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const toggleMenu = () => setOpenMenu(!openMenu);
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const handleAccountClick = () => setOpen(!open);
 
   return (
     <>
       <nav className="bg-gray-900 text-white py-3 px-6 flex items-center justify-between shadow-md sticky top-0 z-10">
         <div className="flex items-center gap-6">
-          <Link to="/"><h1 className="text-2xl font-bold tracking-wide">DisasterMS</h1></Link>
+          <Link to="/">
+            <h1 className="text-2xl font-bold">DisasterMS</h1>
+          </Link>
 
-          {/* Mobile Menu Button */}
-          <button className="lg:hidden text-white" onClick={toggleMobileMenu}>
+          {/* Mobile Menu Toggle */}
+          <button className="lg:hidden" onClick={toggleMobileMenu}>
             {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Links */}
           <ul className="hidden lg:flex gap-6 text-sm">
-            <li className="hover:text-blue-400 cursor-pointer transition">Home</li>
-            <li className="hover:text-blue-400 cursor-pointer transition">One-time Report</li>
+            <li className="hover:text-blue-400 transition cursor-pointer">Home</li>
+            <li className="hover:text-blue-400 transition cursor-pointer">One-time Report</li>
 
-            {/* Dropdown Menu */}
+            {/* Volunteer Hub Dropdown */}
             <div className="relative">
               <button onClick={toggleMenu} className="flex items-center gap-1">
-                <span className="hover:text-blue-400 cursor-pointer transition">Volunteer Hub 🤝</span>
-                <FaChevronDown
-                  strokeWidth={2.5}
-                  className={`h-3 w-3 transition-transform ${openmenu ? "rotate-180" : ""}`}
-                />
+                <span className="hover:text-blue-400 transition">Volunteer Hub 🤝</span>
+                <FaChevronDown className={`h-3 w-3 transform ${openMenu ? "rotate-180" : ""}`} />
               </button>
 
-              {openmenu && (
-                <div className="absolute bg-gray-900 w-[150px] p-2 mt-2 rounded-md shadow-lg max-h-40 overflow-auto">
+              {openMenu && (
+                <div className="absolute bg-gray-900 w-36 p-2 mt-2 rounded-md shadow-lg">
                   <ul>
-                    <li className="hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Join as Volunteer</li>
-                    <li className="hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Manage Tasks</li>
-                    <li className="hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Emergency Assistance</li>
+                    <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Join as Volunteer</li>
+                    <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Manage Tasks</li>
+                    <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Emergency Assistance</li>
                   </ul>
                 </div>
               )}
             </div>
-
-            <li className="hover:text-blue-400 cursor-pointer transition">Support</li>
+            <li className="hover:text-blue-400 transition cursor-pointer">Support</li>
           </ul>
         </div>
 
-        {/* Center - Search Bar */}
-        <div className="hidden md:flex bg-gray-600 px-4 py-2 rounded-full items-center shadow-inner">
+        {/* Search Bar */}
+        <div className="hidden md:flex bg-gray-600 px-4 py-2 rounded-full items-center">
           <input
             type="text"
             placeholder="Find urgent help"
             className="bg-transparent outline-none text-white placeholder-gray-200 px-2"
           />
           <Link to="/ngosearch">
-            <button className="text-white hover:text-blue-100 transition">🔍</button>
+            <button className="text-white hover:text-blue-100">🔍</button>
           </Link>
         </div>
 
-        {/* Right Side - Buttons */}
+        {/* Account and Report Buttons */}
         <div className="flex items-center gap-4">
           <Link to="/report">
-            <button className="text-sm px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-blue-600 transition ml-4">
+            <button className="text-sm px-4 py-2 rounded-full border border-white hover:bg-white hover:text-blue-600 transition">
               Report
             </button>
           </Link>
 
-          <Button onClick={handleOpen} className="rounded-full border border-white">
-          <MdOutlineAccountCircle  className="size-6 rounded-full border border-white" />
-
+          <Button onClick={handleAccountClick} className="rounded-full border border-white">
+            <MdOutlineAccountCircle className="text-white" />
           </Button>
-        {open && (
 
-
-<div className="absolute bg-gray-900 w-[150px] p-2 mt-40 rounded-md shadow-lg max-h-40 overflow-auto">
-<ul>
-  <li className="text-white hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Open DashBoard</li>
-  <li className="text-white hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Manage Tasks</li>
-</ul>
-</div>
-        )}
-
+          {open && (
+            <div className="absolute bg-gray-900 w-36 p-2 mt-40 rounded-md shadow-lg">
+              <ul>
+                <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Open Dashboard</li>
+                <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Manage Tasks</li>
+              </ul>
+            </div>
+          )}
         </div>
       </nav>
 
-      {/* Mobile Menu Section */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden w-full bg-gray-900 p-4">
+        <div className="lg:hidden bg-gray-900 p-4">
           <ul className="flex flex-col gap-4 text-sm">
-            <li className="text-white hover:text-blue-400 cursor-pointer transition">Home</li>
-            <li className="text-white hover:text-blue-400 cursor-pointer transition">One-time Report</li>
+            <li className="hover:text-blue-400 transition cursor-pointer">Home</li>
+            <li className="hover:text-blue-400 transition cursor-pointer">One-time Report</li>
 
             {/* Mobile Dropdown */}
             <div className="relative">
-              <button onClick={toggleMenu} className="flex items-center gap-1 text-white">
-                <span className="text-white hover:text-blue-400 cursor-pointer transition">Volunteer Hub 🤝</span>
-                <FaChevronDown
-                  strokeWidth={2.5}
-                  className={`h-3 w-3 transition-transform ${openmenu ? "rotate-180" : ""}`}
-                />
+              <button onClick={toggleMenu} className="flex items-center gap-1">
+                <span className="hover:text-blue-400 transition">Volunteer Hub 🤝</span>
+                <FaChevronDown className={`h-3 w-3 transform ${openMenu ? "rotate-180" : ""}`} />
               </button>
 
-              {openmenu && (
-                <div className="absolute bg-gray-900 w-[150px] p-2 mt-2 rounded-md shadow-lg max-h-40 overflow-auto">
+              {openMenu && (
+                <div className="absolute bg-gray-900 w-36 p-2 mt-2 rounded-md shadow-lg">
                   <ul>
-                    <li className="text-white hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Join as Volunteer</li>
-                    <li className="text-white hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Manage Tasks</li>
-                    <li className="text-white hover:bg-gray-500 hover:rounded-md p-1 cursor-pointer">Emergency Assistance</li>
+                    <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Join as Volunteer</li>
+                    <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Manage Tasks</li>
+                    <li className="hover:bg-gray-500 p-1 rounded-md cursor-pointer">Emergency Assistance</li>
                   </ul>
                 </div>
               )}
             </div>
-
-            <li className="text-white hover:text-blue-400 cursor-pointer transition">Support</li>
+            <li className="hover:text-blue-400 transition cursor-pointer">Support</li>
 
             {/* Mobile Search Bar */}
-            <div className="flex bg-gray-600 px-4 py-2 rounded-full items-center shadow-inner mt-2">
+            <div className="flex bg-gray-600 px-4 py-2 rounded-full items-center mt-2">
               <input
                 type="text"
                 placeholder="Find urgent help"
                 className="bg-transparent outline-none text-white placeholder-gray-200 px-2"
               />
               <Link to="/ngosearch">
-                <button className="text-white hover:text-blue-100 transition">🔍</button>
+                <button className="text-white hover:text-blue-100">🔍</button>
               </Link>
             </div>
           </ul>
